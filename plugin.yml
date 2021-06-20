@@ -1,0 +1,6 @@
+name: AccountManager
+author: qPexLegendary
+version: 1.0.0
+load: STARTUP
+api: [3.0.0, 4.0.0]
+main: dragonestia\Dragonestia
