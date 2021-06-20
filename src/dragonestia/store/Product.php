@@ -30,6 +30,11 @@ abstract class Product
 
     public abstract function getDescription(): string;
 
+    public function canOpen(Player $player, User $user): bool
+    {
+        return true;
+    }
+
     protected abstract function execute(Player $player, User $user);
 
     public final function sendToPlayer(Player $player, ?float $sale = null): void
@@ -40,7 +45,7 @@ abstract class Product
 
         $e = new TransactionSendEvent($player, $user, $this);
         $e->call();
-        if($e->isCancelled()){
+        if($e->isCancelled() || !$this->canOpen($player, $user)){
             if($e->getErrorMessage() != null) $player->sendMessage($e->getErrorMessage());
             return;
         }
