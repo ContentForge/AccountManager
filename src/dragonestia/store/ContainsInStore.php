@@ -11,4 +11,6 @@ interface ContainsInStore
 
     public function canShowPriceOnStore(): bool;
 
+    public function getIcon(): string;
+
 }

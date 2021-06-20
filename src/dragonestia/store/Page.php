@@ -71,8 +71,12 @@ class Page
             $e->call();
             $transaction->sendToPlayer($player, $e->getSale());
         });
-
-
+        $form->setTitle($this->getName());
+        $form->setContent($this->getText());
+        foreach ($products as $product){
+            $form->addButton($product->getName(), SimpleForm::IMAGE_TYPE_PATH, $product->getIcon());
+        }
+        $player->sendForm($form);
     }
 
 }
