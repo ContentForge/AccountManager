@@ -79,7 +79,7 @@ abstract class Product
 
             $this->execute($player, $user);
 
-            $e = new TransactionPayedEvent($player, $user, $this);
+            $e = new TransactionPayedEvent($player, $user, $this, $finalPrice);
             $e->call();
 
             $player->sendMessage("§bВы успешно приобрели §l'{$this->getName()}'§r§b за §l$finalPrice рублей§r§b. У вас на счету осталось еще §l{$shards} рублей§r§e.");
