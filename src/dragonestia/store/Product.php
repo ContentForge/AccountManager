@@ -17,13 +17,11 @@ abstract class Product
 
     private int $price;
     private float $sale;
-    private array $options;
 
-    public function __construct(int $price, float $sale, array $options = [])
+    public function __construct(int $price, float $sale)
     {
         $this->price = $price;
         $this->sale = $sale;
-        $this->options = $options;
     }
 
     public abstract function getName(): string;
